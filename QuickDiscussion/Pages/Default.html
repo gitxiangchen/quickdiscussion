@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Quick Discussion App</title>
+
+    <script type="text/javascript" src="/_layouts/15/MicrosoftAjax.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.requestexecutor.js"></script>
+    <script type="text/javascript" src="/_layouts/15/SP.UI.Controls.js"></script>
+
+    <link href="../content/css/ie10mobile.min.css" rel="stylesheet" />
+    <!-- use latest version 3.1.1 from http://getbootstrap.com/ -->
+    <link href="../content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../content/css/toastr.min.css" rel="stylesheet" />
+    <link href="../content/css/ng-grid.min.css" rel="stylesheet" />
+    <link href="../content/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="../content/css/app.min.css" rel="stylesheet" />
+
+    <!-- see http://stackoverflow.com/questions/17011616/using-a-relative-path-for-a-service-call-in-angularjs -->
+    <!--<base href="../scripts/" />-->
+
+</head>
+<body data-ng-cloak="">
+
+    <div data-ng-include="'../scripts/app/layouts/shell.html'"></div>
+    <span data-cc-scroll-to-top></span>
+
+    <script type="text/javascript" src="../scripts/libs/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="../scripts/libs/angular/angular.js"></script>
+    <script type="text/javascript" src="../scripts/libs/angular/angular-resource.js"></script>
+    <script type="text/javascript" src="../scripts/libs/angular/angular-animate.js"></script>
+    <script type="text/javascript" src="../scripts/libs/angular/angular-route.js"></script>
+    <script type="text/javascript" src="../scripts/libs/angular/angular-sanitize.js"></script>
+    <!--<script type="text/javascript" src="../scripts/libs/angular/angular-ui-bootstrap.js"></script>-->
+    <!-- use ui bootstrap version 0.11.0 from http://angular-ui.github.io/bootstrap/ -->
+    <script type="text/javascript" src="../scripts/libs/angular/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script type="text/javascript" src="../scripts/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script type="text/javascript" src="../scripts/libs/bootstrap-select/angular-bootstrap-select.js"></script>
+    <script type="text/javascript" src="../scripts/libs/underscore.js"></script>
+    <script type="text/javascript" src="../scripts/libs/toastr.js"></script>
+    <script type="text/javascript" src="../scripts/libs/moment.js"></script>
+    <script type="text/javascript" src="../scripts/libs/spin.js"></script>
+    <script type="text/javascript" src="../scripts/libs/ng-grid.js"></script>
+
+    <!--textAngular-sanitize.js and angular.js's angular-sanitize.js are the SAME file, you must include one or the other but not both.--> 
+    <!--<script type="text/javascript" src='../scripts/libs/textAngular/textAngular-sanitize.min.js'></script>-->
+    <script type="text/javascript" src='../scripts/libs/textAngular/textAngular.js'></script>
+    <script type="text/javascript" src='../scripts/libs/textAngular/textAngularSetup.js'></script>
+
+
+    <!-- Load custom scripts via RequireJS -->
+    <script type="text/javascript" src="../scripts/libs/require.js" data-main="../scripts/main.bundle"></script>
+
+</body>
+</html>

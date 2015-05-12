@@ -1,0 +1,48 @@
+﻿<!-- bootstrap grid fluid http://getbootstrap.com/css/ -->
+<section id="search-view" class="mainbar" data-ng-controller="searchController">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <h2>{{'app.search.result' | i18n}}</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well input-group-lg">
+                        <form class="search-form input-group" ng-submit="onSearch()">
+                            <div class="input-group">
+                                <input type="text" ng-model="searchTerm" class="form-control" placeholder="{{'app.search.searchForum'|i18n}}">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <table data-ng-show="searchedResults.length > 0" class="table table-condensed table-striped">
+                        <thead>
+                        <th>{{'app.search.titleHeader'|i18n}}</th>
+                        <th>{{'app.search.summaryHeader'|i18n}}</th>
+                        <th>{{'app.search.authorHeader'|i18n}}</th>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="t in searchedResults">
+                                <td><a href="{{t.path}}">{{t.title}}</a></td>
+                                <td ng-bind-html="t.summary"></td>
+                                <td>{{t.author}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div data-ng-show="searchedResults.length == 0">{{'app.dashboard.noTopic' | i18n}}</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

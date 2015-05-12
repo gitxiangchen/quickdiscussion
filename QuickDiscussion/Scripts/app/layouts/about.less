@@ -1,0 +1,130 @@
+﻿@import "../../../Content/css/less/common.less";
+
+.dialog.container {
+    min-width: 400px;
+}
+.bootstrap.dialog {
+
+    &.modal {
+        overflow-y: auto;
+    }
+
+    .modal-dialog {
+        width: 595px;
+        height: 445px;
+    }
+
+    @media screen and (min-height: 451px) {
+        .modal-dialog {
+            margin: 5% auto;
+        }
+    }
+
+    font-size: 13px;
+
+    .modal-header {
+        padding-bottom: 0px;
+        padding-top: 8px;
+        height: 40px;
+    }
+
+    .modal-content {
+        height: 100%;
+    }
+
+    .modal-body {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        padding: 0;
+        top: 40px;
+        bottom: 48px;
+    }
+
+    .modal-footer {
+        position: absolute;
+        margin-top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 48px;
+        padding: 8px 15px 0px 15px;
+    }
+
+    .nav-tabs > li > a {
+        height: 32px;
+    }
+
+    .page-container {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        overflow: auto;
+        padding: 15px;
+
+        #productPage {
+            min-width: 525px;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            .logo {
+                height: 96px;
+                width: 96px;
+                display: block;
+                background-image: url(../../../Images/AppIcon.png);
+                background-size: 96px 96px;
+                background-repeat: no-repeat;
+                margin: 0 auto 15px;
+            }
+
+            .application {
+                border-top: 1px solid #aaaaaa;
+                border-bottom: 1px solid #aaaaaa;
+                text-align: center;
+                margin-left: 25px;
+                margin-right: 35px;
+            
+                .application-name {
+                    font-size: 24px;
+                    font-family: "Museo Sans Webfont";
+                    display: block;
+                    text-align: center;
+                    padding-top: 15px;
+                    padding-bottom: 10px;
+                }
+
+                .version-holder {
+                    text-align: center;
+                    padding-bottom: 15px;
+                }
+            }
+
+            .product-info {
+                color: #444444;
+                width: 100%;
+                margin: 0 auto;
+                padding: 10px 15px 0px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                font-size: 12px;
+
+                & > div {
+                    margin: auto 10px 9px;
+                }
+            }
+        }
+
+        #contactPage {
+            margin-left: 20px;
+            margin-right: 20px;
+
+            .section {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,137 @@
+﻿<link rel="stylesheet" ng-href="/QuickDiscussion/scripts/app/forum/import/import.css" />
+
+<section id="import-view" class="mainbar" data-ng-controller="importController">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon" ng-class="{ disabled: status.importing && !status.imported }">
+                            <div class="image"><i class="fa fa-home"></i></div>
+                            <div class="info">
+                                <h3 class="title">{{'app.forum.manage.imports.steps.target'|i18n}}</h3>
+                                <p>{{'app.forum.manage.imports.steps.targetDescription'|i18n}}</p>
+                                <div class="action">
+                                    <a href="#forumManage">
+                                        <i class="fa fa-angle-double-left"></i> {{'app.forum.manage.imports.steps.targetButton'|i18n}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon" ng-class="{ disabled: status.importing && !status.imported }" >
+                            <div class="image"><i class="fa fa-flag"></i></div>
+                            <div class="info">
+                                <h3 class="title">{{'app.forum.manage.imports.steps.source'|i18n}}</h3>
+                                <p>{{'app.forum.manage.imports.steps.sourceDescription'|i18n}}</p>
+                                <div class="action">
+                                    <a ng-click="loadData()">
+                                        {{'app.forum.manage.imports.steps.sourceButton'|i18n}} <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon" ng-class="{ disabled: (!status.importReady || status.importing) && !status.imported }" >
+                            <div class="image"><i class="fa fa-thumbs-o-up"></i></div>
+                            <div class="info">
+                                <h3 class="title">{{'app.forum.manage.imports.steps.finish'|i18n}}</h3>
+                                <p>{{'app.forum.manage.imports.steps.finishDescription'|i18n}}</p>
+                                <div class="action">
+                                    <a ng-click="importData()">
+                                        {{'app.forum.manage.imports.steps.finishButton'|i18n}} <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row" ng-show="!status.importing">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <form class="search-form" ng-submit="loadData()">
+                        <div class="input-group">
+                            <div class="input-group-btn search-panel">
+                                <select selectpicker ng-model="importSource.name" data-style="btn-default" data-width="auto">
+                                    <option data-icon="glyphicon glyphicon-cloud-download">{{'app.forum.manage.imports.selectSource'|i18n}}</option>
+                                    <option data-icon="glyphicon glyphicon-cloud" ng-repeat="source in importSources">{{source.name}}</option>
+                                </select>
+                            </div>
+                            <input type="text" ng-model="searchText" class="form-control" placeholder="{{'app.forum.manage.imports.search'|i18n}}">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row" ng-show="status.importing">
+                <progressbar max="progress.max" value="progress.value" type="success">
+                    <span ng-hide="progress.value < 10" style="color:black; white-space:nowrap;">{{progress.activeCount}} / {{progress.totalCount}}</span>
+                </progressbar>
+            </div>
+            <!--<div class="row" ng-show="isImporting()">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" ng-style="topicPercent">
+                        <span class="sr-only">35% Complete (success)</span>
+                    </div>
+                    <div class="progress-bar progress-bar-warning progress-bar-striped" ng-style="messagePercent">
+                        <span class="sr-only">20% Complete (warning)</span>
+                    </div>
+                </div>
+            </div>-->
+            <div class="row-fluid">
+                <div ng-include="'sourceView.html'"></div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script type="text/ng-template" id="sourceView.html">
+    <div class="container">
+        <table data-ng-show="threads.length > 0" class="table table-bordred table-striped">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><input type="checkbox" ng-model="checkedAll" ng-click="checkAll()" /></th>
+                    <th>{{'app.forum.manage.imports.searchResultHeaders.topic'|i18n}}</th>
+                    <th>{{'app.forum.manage.imports.searchResultHeaders.message'|i18n}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="thread in threads">
+                    <td>&nbsp;</td>
+                    <td>                        
+                        <input type="checkbox" ng-model="checked[$index]" ng-click="check($index)" />
+                    </td>
+                    <td>
+                        <a ng-click="showing[$index]=!showing[$index]"><p ng-bind-html="thread.subject"></p></a>
+                        <p ng-bind-html="thread.body" ng-show="showing[$index]"></p>
+                    </td>
+                    <td>
+                        <span class="label label-info">{{thread.messages.length}}</span> 
+                    </</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="pull-right">Total {{topicCount}} topics / {{messageCount}} messages</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="9fe182ed-c927-4425-9cf6-b8d614408242" 
+        solutionId="9fe182ed-c927-4425-9cf6-b8d614408242" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="QuickDiscussion"
+        sharePointProductVersion="15.0">
+  <features>
+        <featureReference itemId="49eef219-1001-4d83-9c68-87dee34d66aa" />
+  </features>
+</package>

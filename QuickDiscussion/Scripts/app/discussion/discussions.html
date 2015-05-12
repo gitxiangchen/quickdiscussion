@@ -1,0 +1,55 @@
+﻿<!-- bootstrap grid fluid http://getbootstrap.com/css/ -->
+<section id="forum-view" class="mainbar" data-ng-controller="discussionsController as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <ul class="breadcrumb">
+                    <li class="fade-selection-animation" data-ng-class="r.css" data-ng-repeat="r in vm.navRoutes">
+                        <a href="{{r.url}}" data-ng-bind-html="r.display"></a>
+                    </li>
+                </ul>
+                <h4>{{'app.forum.topic' | i18n}}</h4>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="text" class="forum-search-query form-control" ng-model="searchText" placeholder="Search threads...">
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="{{'app.dashboard.activeThread' | i18n}}"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table data-ng-show="filteredDiscussions.length > 0" class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th>Title</th>
+                                        <th>Question</th>
+                                        <th>Last Modified</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in filteredDiscussions">
+                                        <td>&nbsp;</td>
+                                        <td><a href="#discussion/{{p.ID}}">{{p.Title}}</a></td>
+                                        <td>{{p.IsQuestion}}</td>
+                                        <td>{{p.OData_DCDateModified | date: 'yyyy-MM-dd'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="pull-right">Showing {{ filteredCount }} of {{ totalRecords}}</div>
+                                            <pagination on-select-page="pageChanged(page)" total-items="totalRecords" page="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div data-ng-show="filteredDiscussions.length === 0">{{'app.dashboard.noThread' | i18n}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

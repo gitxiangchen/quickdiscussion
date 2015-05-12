@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" ng-href="/QuickDiscussion/scripts/app/layouts/about.css" />
+
+<div class="modal-header">
+    <button type="button" id="dialogCloseButton" class="close" ng-click="$dismiss()">&times;</button>
+    <ul class="nav nav-tabs">
+        <li ng-repeat="page in tabPages" ng-class="{active: currentPage === page}">
+            <a id="{{page.id}}PageLink" ng-click="selectPage(page)">
+                {{page.title}}
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="modal-body">
+    <div class="page-container">
+        <div ng-repeat="page in tabPages" ng-show="currentPage === page">
+            <div ng-include="page.templateUrl" ></div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button id="dialogCancelButton" type="button" ng-click="$dismiss()" class="btn btn-sm btn-primary" >{{ 'app.topnav.about.okButton' | i18n }}</button>
+</div>
+
+<script type="text/ng-template" id="product.html">
+    <div id="productPage">
+        <div class="logo"></div>
+        <div class="application">
+
+            <div class="application-name">Quick Discussion</div>
+
+            <div class="version-holder">
+                Version <span class="application-version">1.0.0.0</span>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="legal">
+                <div>Legal statement goes here.</div>
+            </div>
+            <div class="copyright">
+                <div>© 2014 Open Source. ALL RIGHTS RESERVED.</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contact.html">
+    <div id="contactPage">
+        <h4>Contact Us</h4>
+        <p>
+            We listen to customers and delivers worldwide innovative technology, business solutions and services they trust and value. For more information, visit <a href="http://www.software.dell.com" target="_blank">www.software.dell.com</a>.
+        </p>
+
+        <div class="section">
+            <strong>Technical Support:</strong>
+            <div>
+                <a title="Contact Support" href="#" target="_blank">Online Support</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <strong>Product Questions and Sales:</strong>
+            <div><span>(800) 888 - 8888</span></div>
+        </div>
+
+        <div class="section">
+            <strong>Email:</strong>
+            <div>
+                <a href="#">info@com</a>
+            </div>
+        </div>
+    </div>
+</script>

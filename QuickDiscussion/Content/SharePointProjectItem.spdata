@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Content\" Type="ElementManifest" />
+    <ProjectItemFile Source="css\font\fontawesome-webfont.eot" Target="Content\css\font\" Type="ElementFile" />
+    <ProjectItemFile Source="css\font\fontawesome-webfont.svg" Target="Content\css\font\" Type="ElementFile" />
+    <ProjectItemFile Source="css\font\fontawesome-webfont.ttf" Target="Content\css\font\" Type="ElementFile" />
+    <ProjectItemFile Source="css\font\fontawesome-webfont.woff" Target="Content\css\font\" Type="ElementFile" />
+    <ProjectItemFile Source="css\font\FontAwesome.otf" Target="Content\css\font\" Type="ElementFile" />
+    <ProjectItemFile Source="css\forum\flat.css" Target="Content\css\forum\" Type="ElementFile" />
+    <ProjectItemFile Source="css\forum\timeline.css" Target="Content\css\forum\" Type="ElementFile" />
+    <ProjectItemFile Source="css\forum\treeview.css" Target="Content\css\forum\" Type="ElementFile" />
+    <ProjectItemFile Source="css\font-awesome.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\glyphicons-halflings-regular.eot" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\glyphicons-halflings-regular.svg" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\glyphicons-halflings-regular.ttf" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\glyphicons-halflings-regular.woff" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fontawesome-webfont.eot" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fontawesome-webfont.svg" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fontawesome-webfont.ttf" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\fontawesome-webfont.woff" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="fonts\FontAwesome.otf" Target="Content\fonts\" Type="ElementFile" />
+    <ProjectItemFile Source="css\ng-grid.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\forum\shared.css" Target="Content\css\forum\" Type="ElementFile" />
+    <ProjectItemFile Source="css\bootstrap.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\ie10mobile.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\toastr.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\app.min.css" Target="Content\css\" Type="ElementFile" />
+    <ProjectItemFile Source="css\bootstrap-select.min.css" Target="Content\css\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

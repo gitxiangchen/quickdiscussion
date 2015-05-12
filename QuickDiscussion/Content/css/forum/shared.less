@@ -1,0 +1,40 @@
+﻿.message-footer {
+    margin-top: 10px;
+    min-height: 34px;
+    .message-input {
+        display: block;
+        padding: 3px 4px 2px;
+        color: rgb(153, 153, 153);
+        font-size: 12px;
+        font-weight: 400;
+        border: 1px solid rgb(217, 217, 217);
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0470588) 0 1px 0 0;
+    }
+}
+
+.message-panel-comment {
+    display: block;
+    padding: 10px 20px 15px;
+    border-top: 1px solid rgb(229, 229, 229);
+    background-color: rgb(245, 245, 245);
+    .message-panel-textarea {
+        float: right;
+        width: ~"calc(100% - 56px)";
+        &textarea {
+            display: block;
+            /*margin-left: 60px;
+            width: ~"calc(100% - 56px)";*/
+            width:100%;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(217, 217, 217);
+            box-shadow: rgba(0, 0, 0, 0.0470588) 0 1px 0 0;
+            resize: vertical;
+        }
+        &.btn {
+            margin-top: 10px;
+            margin-right: 8px;
+            width: 100%;
+        }
+    }
+}

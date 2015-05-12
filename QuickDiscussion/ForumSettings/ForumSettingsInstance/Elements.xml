@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="ForumSettings" OnQuickLaunch="TRUE" TemplateType="10001" Url="Lists/ForumSettings" Description="Quick Discussion Forum Settings Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Scope">TopNavigation</Field>
+          <Field Name="Configuration">
+            {
+            "position": {
+            "current": "Default"
+            },
+            "language": {
+            "current": "English",
+            "options": ["English", "中文"]
+            },
+            "navigations": [
+            {
+            "id": "100", "name": "app.topnav.language.main", "url": "#",
+            "menus": [{ "name": "app.topnav.language.english", "action": "$scope.setLanguage('en')" }, { "name": "app.topnav.language.chinese", "action": "$scope.setLanguage('zh')" }, { "name": "", "url": "-" }, { "name": "app.topnav.language.auto", "action": "$scope.setLanguage()" } ]
+            }
+            ]
+            }
+          </Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

@@ -1,0 +1,82 @@
+﻿<link rel="stylesheet" ng-href="/QuickDiscussion/scripts/app/forum/manage/manage.css" />
+
+<section id="manage-view" class="mainbar" data-ng-controller="manageController">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <h2>{{'app.forum.manage.title'|i18n}}</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <button data-ng-show="canAddEditForum" class="btn btn-primary" type="button" ng-click="addForum()">{{'app.forum.manage.newForum' | i18n}}</button>
+                </div>
+                <div class="col-xs-4 input-group">
+                    <input type="text" class="forum-search-query form-control input-large" ng-model="forumFilterText" placeholder="Filter forums..." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" ng-repeat="rows in filteredForums | split:filteredForums.length/2">
+                    <div class="blockquote-box clearfix" ng-class="getClass($parent.$index, $index)" ng-repeat="item in rows">
+                        <div class="square pull-left" ng-click="gotoForum($parent.$index, $index)" tooltip="{{'app.forum.manage.gotoForumTooltip'|i18n}}">
+                            <span ng-class="item.onHostWeb ? 'fa fa-home fa-lg' : 'fa fa-windows fa-lg' "></span>
+                            <span class="bold">{{item.itemCount|number:0}}</span>
+                        </div>
+                        <h4>{{item.name}}</h4>
+                        <div>
+                            Total posts {{item.itemCount}} and description : {{item.description}}
+                        </div>
+                        <div class="action-group">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-xs btn-default" ng-click="importForum($parent.$index, $index)">
+                                    <i class="glyphicon glyphicon-download medium"></i>
+                                    {{'app.forum.manage.importButton'|i18n}}
+                                </button>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-xs btn-default" ng-click="editForum($parent.$index, $index)">
+                                    <span class="fa fa-edit"></span>
+                                    {{'app.forum.manage.editButton'|i18n}}
+                                </button>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-xs btn-default">{{$parent.$index}} - {{$index}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script type="text/ng-template" id="editForum.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <span class="glyphicon glyphicon-asterisk" popover-placement="right" popover-popup-delay="200" popover="{{'app.general.required'|i18n}}" popover-trigger="mouseenter"></span> 
+            <span ng-show="forumTitleValidationMessage" class="error">{{ forumTitleValidationMessage }}</span>
+            <input type="text" class="form-control" id="title" name="title" ng-model="forum.name" placeholder="Enter forum name" required />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" id="description" ng-model="forum.description" placeholder="Enter description for the forum" />
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="onHostWeb" id="onHostWeb" ng-model="forum.onHostWeb" disabled="isEdit" />
+            <label class="control-label" for="onHostWeb">{{'app.forum.manage.onHostWeb' | i18n}}</label>
+            <span class="glyphicon glyphicon-info-sign" popover-placement="right" popover-popup-delay="200" popover="{{'app.forum.manage.onHostWebTooltip'|i18n}}" popover-trigger="mouseenter"></span>
+        </div>
+        <div class="bootstrap">
+            <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.message}}</alert>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-show="isEdit" class="btn btn-warning pull-left" ng-click="delete()">{{deleteButton}}</button>
+        <button class="btn btn-primary" ng-click="save()">{{saveButton}}</button>
+        <button class="btn" ng-click="cancel()">{{cancelButton}}</button>
+    </div>
+</script>

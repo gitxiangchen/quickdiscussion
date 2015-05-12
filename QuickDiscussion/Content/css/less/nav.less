@@ -1,0 +1,125 @@
+﻿/* less/nav.less */
+.label,.glyphicon { margin-right:5px; }
+
+/* override bootstrap .navbar */
+.navbar {
+    margin-bottom: 2px;
+
+    .brand {
+        background: url(images/icon.png) no-repeat left center !important;
+        margin-left: -6px;
+        color: #eee !important;
+    }
+    .brand-title {
+        margin-left: 30px;
+        font-size: 35px;
+        font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    }
+    .container {
+      width: 97% !important;
+    }
+    .nav > li > a {
+      font-size: 13px !important;
+      /*color: #fff !important;*/
+    }
+    i {
+      margin-right: 3px;
+    }
+    .caret {
+      border-top-color: black !important;
+      border-bottom-color: black !important;
+    }
+
+}
+
+.navbar-logo img {
+    height: 20px;
+}
+
+.navbar .nav-user-pic {
+  width: 20px;
+  margin-right: 10px;
+}
+.navbar .badge {
+  margin-left: 5px;
+}
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+
+/* #region bootstrap overrides, see more 
+    http://stackoverflow.com/questions/18529274/change-navbar-color-in-twitter-bootstrap-3
+*/
+/* navbar */
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #777;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #777;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+}
+
+/* #endregion */
+

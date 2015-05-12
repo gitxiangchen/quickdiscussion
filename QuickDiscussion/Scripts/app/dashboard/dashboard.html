@@ -1,0 +1,51 @@
+﻿<link rel="stylesheet" ng-href="/QuickDiscussion/scripts/app/dashboard/dashboard.css" />
+
+<section id="dashboard-view" class="mainbar" data-ng-controller="dashboardController">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <h4>Forums</h4>
+            </div>            
+            <div class="row col-xs-8">
+                <form class="search-form" ng-submit="searchForums()">
+                    <div class="input-group">
+                        <i ng-show="loadingSearches" class="input-group-addon glyphicon glyphicon-refresh"></i>
+                        <input type="text" ng-model="searchTerm" class="form-control" placeholder="{{'app.search.searchForum'|i18n}}" typeahead="hint for hint in getSearchHints($viewValue) | filter:$viewValue" typeahead-loading="loadingSearches">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <ul class="tile">
+                    <li class="borange" ng-click="navigate('/forums')">
+                        <div class="pull-left"><i class="fa fa-comments large" ></i></div>
+                        <div class="tile-text pull-right">
+                            <span class="bold">{{forumCount}}</span>{{ "app.dashboard.activeForum" | i18n }}
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li class="blightblue" ng-click="navigate('/discussions')">
+                        <div class="pull-left"><i class="fa fa-group large" ></i></div>
+                        <div class="tile-text pull-right">
+                            <span class="bold">{{topicCount}}</span>{{ "app.dashboard.activeThread" | i18n }}
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li class="bblue" ng-click="navigate('/admin')">
+                        <div class="pull-left"><i class="fa fa-user large"></i></div>
+                        <div class="tile-text pull-right">
+                            <span class="bold">203</span>Active Members
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</section>

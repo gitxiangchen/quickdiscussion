@@ -1,0 +1,110 @@
+﻿<div data-ng-controller="topnavController as topnav">
+    <div id="chrome_ctrl_placeholder"></div>
+    <ng-switch on="theme">
+        <div ng-switch-default class="bootstrap">
+            <nav class="navbar navbar-default {{navbarPosition}}" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!--http://getbootstrap.com/examples/navbar-fixed-top/-->
+                        <a class="navbar-brand" href="#" title="{{'app.topnav.tooltip.addYourOwn'|i18n}}">
+                            <span class="glyphicon glyphicon-home" ></span>
+                            {{'app.topnav.hostWeb' | i18n}}
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#dashboard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Calendar</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-list-alt"></span>Widgets <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://www.jquery2dotnet.com">Action</a></li>
+                                    <li><a href="http://www.jquery2dotnet.com">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-search"></span>{{'app.topnav.search.title'|i18n}} <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" style="min-width: 300px;">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <form class="navbar-form navbar-left" role="search" ng-submit="onSearch()">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Search" />
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-primary" type="button">
+                                                                {{'app.topnav.search.go' | i18n}}
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul data-ng-repeat="menu in topMenus" class="nav navbar-nav">
+                            <!-- build menus as configured -->
+                            <li ng-if="!menu.menus"><a href="{{menu.url}}">{{menu.name | i18n}}</a></li>
+                            <li ng-if="menu.menus" class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{menu.name | i18n}} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="subMenu in menu.menus" ng-class="getClass($index, menu.menus)">
+                                        <a ng-if="subMenu.url" href="subMenu.url">{{subMenu.name | i18n}}</a>
+                                        <a ng-if="subMenu.action" ng-click="performAction(subMenu.action)">{{subMenu.name | i18n}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a ng-click="about()" title="{{ 'app.topnav.about.title' | i18n }}">
+                                    <span class="glyphicon glyphicon-info-sign"></span>{{'app.topnav.about.title'|i18n}}
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{'app.topnav.userPosts'|i18n}}">
+                                    <span class="glyphicon glyphicon-comment"></span>{{'app.topnav.userPosts'|i18n}}
+                                    <span class="label label-info">{{posts.length}}</span>
+                                    <!--<b class="caret"></b>-->
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="post in posts">
+                                        <a href="#discussion/{{post.forumNameOrId}}/{{post.topicNameOrId}}">
+                                            <span class="label label-info">{{post.modified|date: 'short'}}</span>{{post.subject}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>&nbsp;{{user.title}} <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li ng-show="isAdministrator"><a href="#customization"><span class="glyphicon glyphicon-user"></span>&nbsp;{{'app.topnav.customization' | i18n}}</a></li>
+                                    <li ng-show="isAdministrator"><a href="#forumManage"><span class="glyphicon glyphicon-cog"></span>&nbsp;{{'app.topnav.manageForum' | i18n}}</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{hostWebUrl}}"><span class="glyphicon glyphicon-off"></span>&nbsp;{{'app.topnav.returnToSite' | i18n}}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </ng-switch>
+</div>
+
+
+

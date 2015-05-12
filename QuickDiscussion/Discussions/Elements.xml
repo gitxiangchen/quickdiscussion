@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Discussions" OnQuickLaunch="FALSE" TemplateType="108" FeatureId="00bfea71-6a49-43fa-b535-d15c05500108" Url="Lists/Discussions" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Question 1</Field>
+          <Field Name="Body">Some question 1</Field>
+          <Field Name="IsQuestion">True</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Question 2</Field>
+          <Field Name="Body">Some question 2</Field>
+          <Field Name="IsQuestion">True</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>
